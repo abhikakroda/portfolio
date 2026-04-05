@@ -2,7 +2,14 @@
 
 import { useRouter } from "@bprogress/next/app"
 import { CornerDownLeftIcon, LoaderCircleIcon } from "lucide-react"
-import React, { Fragment, useCallback, useMemo, useState } from "react"
+import React, {
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
 import { CommandDialog, CommandInput } from "@/components/ui/command"
@@ -40,6 +47,8 @@ export function CommandMenu({
   const [answer, setAnswer] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
+  const abortControllerRef = useRef<AbortController | null>(null)
+  const requestIdRef = useRef(0)
 
   useHotkeys(
     "mod+k, slash",
@@ -60,6 +69,11 @@ export function CommandMenu({
       setIsLoading(true)
       setError("")
       setAnswer("")
+      requestIdRef.current += 1
+      const requestId = requestIdRef.current
+      abortControllerRef.current?.abort()
+      const controller = new AbortController()
+      abortControllerRef.current = controller
 
       trackEvent({
         name: "command_menu_action",
@@ -76,6 +90,7 @@ export function CommandMenu({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ question: trimmed }),
+          signal: controller.signal,
         })
 
         const data = (await res.json()) as AskResponse & { error?: string }
@@ -84,17 +99,34 @@ export function CommandMenu({
           throw new Error(data.error || "Failed to get response.")
         }
 
-        setAnswer(data.answer)
+        if (requestId === requestIdRef.current) {
+          setAnswer(data.answer)
+        }
       } catch (err) {
+        if (controller.signal.aborted) {
+          return
+        }
+
         const message =
           err instanceof Error ? err.message : "Failed to get response."
-        setError(message)
+        if (requestId === requestIdRef.current) {
+          setError(message)
+        }
       } finally {
-        setIsLoading(false)
+        if (requestId === requestIdRef.current) {
+          setIsLoading(false)
+        }
       }
     },
     [isLoading]
   )
+
+  useEffect(() => {
+    if (!open) {
+      abortControllerRef.current?.abort()
+      setIsLoading(false)
+    }
+  }, [open])
 
   const handleOpen = useCallback(() => {
     setOpen(true)

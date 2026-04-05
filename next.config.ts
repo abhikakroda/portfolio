@@ -2,6 +2,9 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  turbopack: {
+    root: process.cwd(),
+  },
   transpilePackages: ["next-mdx-remote"],
   allowedDevOrigins: ["ncdai.localhost", "ncdai-macbook.local"],
   devIndicators: false,

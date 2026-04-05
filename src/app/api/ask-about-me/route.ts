@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 
 import { CERTIFICATIONS } from "@/features/portfolio/data/certifications"
@@ -12,6 +13,13 @@ const GEMINI_API_KEY =
 
 const GEMINI_MODEL = "gemini-2.5-flash-lite"
 const GITHUB_USERNAME = "abhikakroda"
+const getCachedProfileContext = unstable_cache(
+  buildProfileContext,
+  ["ask-about-me-profile-context"],
+  {
+    revalidate: 3600,
+  }
+)
 
 export async function POST(request: Request) {
   try {
@@ -46,7 +54,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ answer: fastAnswer })
     }
 
-    const profileContext = await buildProfileContext()
+    const profileContext = await getCachedProfileContext()
 
     const res = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
