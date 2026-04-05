@@ -5,6 +5,7 @@ import { CornerDownLeftIcon, LoaderCircleIcon } from "lucide-react"
 import React, { useCallback, useMemo, useState } from "react"
 import { useHotkeys } from "react-hotkeys-hook"
 
+import { Markdown } from "@/components/markdown"
 import { CommandDialog, CommandInput } from "@/components/ui/command"
 import { trackEvent } from "@/lib/events"
 
@@ -151,9 +152,9 @@ export function CommandMenu({
               </div>
             ) : answer ? (
               <div className="space-y-3">
-                <p className="text-sm leading-6 whitespace-pre-wrap text-foreground">
-                  {answer}
-                </p>
+                <div className="prose prose-sm max-w-none text-foreground dark:prose-invert prose-p:my-2 prose-a:text-link prose-strong:text-foreground prose-ol:my-2 prose-ul:my-2 prose-li:my-0.5">
+                  <Markdown>{answer}</Markdown>
+                </div>
                 <button
                   type="button"
                   className="text-sm font-medium text-link underline underline-offset-4"
