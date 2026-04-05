@@ -32,11 +32,13 @@ function CommandDialog({
   title = "Command Palette",
   description = "Search for a command to run...",
   children,
+  className,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string
   description?: string
   children: React.ReactNode
+  className?: string
 }) {
   return (
     <Dialog {...props}>
@@ -47,12 +49,16 @@ function CommandDialog({
 
       <DialogContent
         data-slot="command-dialog-content"
-        className="bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg"
+        className={cn(
+          "bg-popover p-0 max-sm:top-16 max-sm:translate-y-0 sm:max-w-lg",
+          className
+        )}
         showCloseButton={false}
         showOverlay={false}
       >
         <Command
           className={cn(
+            "flex min-h-0 flex-1 flex-col",
             "**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-input-wrapper]_svg]:size-5 **:[[cmdk-input]]:h-10",
             "**:[[cmdk-group]]:px-2",
             "**:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground",

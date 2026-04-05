@@ -10,7 +10,7 @@ import { USER } from "@/features/portfolio/data/user"
 const GEMINI_API_KEY =
   process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || ""
 
-const GEMINI_MODEL = "gemini-2.5-flash"
+const GEMINI_MODEL = "gemini-2.5-flash-lite"
 const GITHUB_USERNAME = "abhikakroda"
 
 export async function POST(request: Request) {
@@ -25,6 +25,12 @@ export async function POST(request: Request) {
     }
 
     if (!GEMINI_API_KEY) {
+      const fastAnswer = getFastAnswer(question)
+
+      if (fastAnswer) {
+        return NextResponse.json({ answer: fastAnswer })
+      }
+
       return NextResponse.json(
         {
           error:
@@ -32,6 +38,12 @@ export async function POST(request: Request) {
         },
         { status: 503 }
       )
+    }
+
+    const fastAnswer = getFastAnswer(question)
+
+    if (fastAnswer) {
+      return NextResponse.json({ answer: fastAnswer })
     }
 
     const profileContext = await buildProfileContext()
@@ -63,8 +75,8 @@ export async function POST(request: Request) {
             },
           ],
           generationConfig: {
-            temperature: 0.35,
-            maxOutputTokens: 450,
+            temperature: 0.2,
+            maxOutputTokens: 260,
           },
         }),
       }
@@ -92,6 +104,126 @@ export async function POST(request: Request) {
       { status: 500 }
     )
   }
+}
+
+function getFastAnswer(question: string) {
+  const normalized = question.toLowerCase().trim()
+
+  if (
+    matchesAny(normalized, [
+      "contact",
+      "email",
+      "mail",
+      "linkedin",
+      "github",
+      "x ",
+      "twitter",
+      "resume",
+    ])
+  ) {
+    return [
+      `You can reach **${USER.displayName}** here:`,
+      ...SOCIAL_LINKS.map((item) => `- **${item.title}:** ${item.href}`),
+    ].join("\n")
+  }
+
+  if (
+    matchesAny(normalized, [
+      "education",
+      "study",
+      "studying",
+      "college",
+      "school",
+      "cgpa",
+      "class x",
+      "class xii",
+      "10th",
+      "12th",
+    ])
+  ) {
+    return [
+      `Here is **${USER.displayName}**'s education:`,
+      ...EDUCATION.map(
+        (item) =>
+          `- **${item.school}**\n  - ${item.degree} - ${item.field}\n  - ${item.years}${item.details?.length ? `\n  - ${item.details.join("\n  - ")}` : ""}`
+      ),
+    ].join("\n")
+  }
+
+  if (
+    matchesAny(normalized, [
+      "intern",
+      "internship",
+      "experience",
+      "worked",
+      "iisc",
+      "drdo",
+      "cdac",
+      "work",
+    ])
+  ) {
+    return [
+      `Here is **${USER.displayName}**'s experience:`,
+      ...EXPERIENCES.filter((item) => item.id !== "education").flatMap(
+        (company) =>
+          company.positions.map(
+            (position) =>
+              `- **${position.title}** at **${company.companyName}**\n  - ${position.employmentPeriod.start}${position.employmentPeriod.end ? ` — ${position.employmentPeriod.end}` : " — Present"}\n  - ${position.employmentType || "Role"}${position.skills?.length ? `\n  - Skills: ${position.skills.join(", ")}` : ""}`
+          )
+      ),
+    ].join("\n")
+  }
+
+  if (matchesAny(normalized, ["project", "build", "github"])) {
+    return [
+      `These are the main projects currently highlighted for **${USER.displayName}**:`,
+      ...PROJECTS.map(
+        (project) =>
+          `- **${project.title}**\n  - ${cleanMarkdown(project.description || "")}\n  - ${project.link}`
+      ),
+    ].join("\n")
+  }
+
+  if (
+    matchesAny(normalized, [
+      "certificate",
+      "certification",
+      "nvidia",
+      "qualcomm",
+      "credential",
+    ])
+  ) {
+    return [
+      `These are **${USER.displayName}**'s certifications:`,
+      ...CERTIFICATIONS.map(
+        (item) =>
+          `- **${item.title}** by **${item.issuer}**\n  - Issued: ${item.issueDate}\n  - Credential ID: ${item.credentialID}\n  - ${item.credentialURL}`
+      ),
+    ].join("\n")
+  }
+
+  if (
+    matchesAny(normalized, [
+      "who is",
+      "about abhishek",
+      "about me",
+      "introduce",
+    ])
+  ) {
+    return [
+      `**${USER.displayName}** is based in **${USER.address}**.`,
+      "",
+      USER.bio,
+      "",
+      cleanMarkdown(USER.about),
+    ].join("\n")
+  }
+
+  return null
+}
+
+function matchesAny(input: string, needles: string[]) {
+  return needles.some((needle) => input.includes(needle))
 }
 
 async function buildProfileContext() {
