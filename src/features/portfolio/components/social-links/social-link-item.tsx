@@ -12,7 +12,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "motion-surface motion-press group inline-flex h-11 items-center gap-2.5 rounded-[0.9rem] border border-line bg-background px-4 text-foreground shadow-[0_2px_8px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 hover:border-line/80 hover:shadow-[0_8px_18px_rgba(15,23,42,0.08)] sm:h-12 sm:gap-3 sm:rounded-[1rem] sm:px-4.5"
+        "glass-surface glass-sheen motion-surface motion-press group inline-flex h-11 w-full items-center justify-center gap-2.5 rounded-[0.9rem] border px-3 text-foreground hover:-translate-y-0.5 sm:h-12 sm:w-auto sm:justify-start sm:gap-3 sm:rounded-[1rem] sm:px-4.5 dark:hover:bg-white/[0.03]"
       )}
       href={addQueryParams(href, UTM_PARAMS)}
       onPointerDown={() => triggerHaptic()}

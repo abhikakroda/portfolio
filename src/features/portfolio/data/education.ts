@@ -24,7 +24,15 @@ export const EDUCATION: EducationItem[] = [
     school: "Board of Secondary Education Rajasthan",
     degree: "Senior Secondary (Class XII)",
     field: "Physics, Chemistry, Mathematics",
-    years: "Aug 2020 – Mar 2022",
+    years: "2021 – 2022",
     details: ["Percentage: 92.20"],
+  },
+  {
+    id: "rbse-secondary",
+    school: "Board of Secondary Education Rajasthan",
+    degree: "Secondary (Class X)",
+    field: "General Studies",
+    years: "2019 – 2020",
+    details: ["Percentage: 93.83"],
   },
 ]

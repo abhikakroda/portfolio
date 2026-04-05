@@ -12,12 +12,23 @@ export const dynamicParams = false
 export async function GET() {
   const card = new VCard()
 
-  card
-    .addName(USER.lastName, USER.firstName)
-    .addPhoneNumber(decodePhoneNumber(USER.phoneNumber))
-    .addAddress(USER.address)
-    .addEmail(decodeEmail(USER.email))
-    .addURL(USER.website)
+  card.addName(USER.lastName, USER.firstName)
+
+  if (USER.phoneNumber) {
+    card.addPhoneNumber(decodePhoneNumber(USER.phoneNumber))
+  }
+
+  if (USER.address) {
+    card.addAddress(USER.address)
+  }
+
+  if (USER.email) {
+    card.addEmail(decodeEmail(USER.email))
+  }
+
+  if (USER.website) {
+    card.addURL(USER.website)
+  }
 
   const photo = await getVCardPhoto(USER.avatar)
   if (photo) {

@@ -32,8 +32,8 @@ export function ExperiencePositionItem({
     >
       <CollapsibleTrigger
         className={cn(
-          "group block w-full text-left",
-          "rounded-xl border border-line/70 bg-muted/15 px-4 py-4 transition-[background-color,border-color] ease-out hover:bg-accent-muted",
+          "glass-surface glass-sheen motion-surface motion-press group block w-full text-left",
+          "rounded-xl border px-4 py-4 hover:bg-accent-muted/80 dark:hover:bg-white/[0.03]",
           "outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset"
         )}
       >
@@ -97,17 +97,17 @@ export function ExperiencePositionItem({
             <Markdown>{position.description}</Markdown>
           </ProseMono>
         )}
-      </CollapsibleContent>
 
-      {Array.isArray(position.skills) && position.skills.length > 0 && (
-        <ul className="flex flex-wrap gap-1.5 pt-3 pl-11">
-          {position.skills.map((skill, index) => (
-            <li key={index} className="flex">
-              <Tag>{skill}</Tag>
-            </li>
-          ))}
-        </ul>
-      )}
+        {Array.isArray(position.skills) && position.skills.length > 0 && (
+          <ul className="flex flex-wrap gap-1.5 pt-3 pl-11">
+            {position.skills.map((skill, index) => (
+              <li key={index} className="flex">
+                <Tag>{skill}</Tag>
+              </li>
+            ))}
+          </ul>
+        )}
+      </CollapsibleContent>
     </Collapsible>
   )
 }

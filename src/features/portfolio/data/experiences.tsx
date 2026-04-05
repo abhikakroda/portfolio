@@ -11,7 +11,7 @@ export const EXPERIENCES: Experience[] = [
         id: "1",
         title: "AI/ML Intern – Semiconductor Control & Fault Detection",
         employmentPeriod: {
-          start: "Add dates",
+          start: "10 Dec 2025",
         },
         employmentType: "Internship",
         icon: <CodeXmlIcon />,
@@ -39,7 +39,8 @@ export const EXPERIENCES: Experience[] = [
         id: "1",
         title: "Research Intern – Semiconductor Devices & Applications",
         employmentPeriod: {
-          start: "Add dates",
+          start: "15 Dec 2025",
+          end: "26 Jan 2026",
         },
         employmentType: "Internship",
         icon: <GraduationCapIcon />,
@@ -66,7 +67,8 @@ export const EXPERIENCES: Experience[] = [
         id: "1",
         title: "Cybersecurity Intern",
         employmentPeriod: {
-          start: "Add dates",
+          start: "Jul 2025",
+          end: "Aug 2025",
         },
         employmentType: "Internship",
         icon: <LightbulbIcon />,

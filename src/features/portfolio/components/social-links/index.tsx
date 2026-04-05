@@ -10,7 +10,7 @@ export function SocialLinks() {
       </PanelHeader>
 
       <div className="px-4 py-4 sm:px-8 sm:py-5">
-        <div className="flex flex-wrap gap-3 sm:gap-5">
+        <div className="grid grid-cols-3 gap-3 sm:flex sm:flex-wrap sm:gap-5">
           {SOCIAL_LINKS.map((link, index) => {
             return <SocialLinkItem key={index} {...link} />
           })}

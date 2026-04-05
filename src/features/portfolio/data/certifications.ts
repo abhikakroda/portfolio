@@ -10,15 +10,15 @@ export const CERTIFICATIONS: Certification[] = [
     issueDate: "2026-02-01",
     credentialID: "8whxmGEYkn",
     credentialURL:
-      "https://www.qualcomm.com/company/careers/learning-and-development",
+      "https://www.credly.com/badges/96a20be2-79b2-4d9c-8d27-f2e274098c3a/public_url",
   },
   {
     title: "Getting Started with Deep Learning",
     issuer: "NVIDIA",
-    issuerLogoURL:
-      "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg",
+    issuerLogoURL: "/cert-icons/nvidia.svg",
     issueDate: "2026-01-01",
     credentialID: "M0S7oiZMQcO9R966P9O6-Q",
-    credentialURL: "https://learn.nvidia.com/",
+    credentialURL:
+      "https://learn.nvidia.com/certificates?id=9SrMHKkQSKK2W2MbOrZDAw#",
   },
 ]
