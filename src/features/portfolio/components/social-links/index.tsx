@@ -1,20 +1,16 @@
 import { SOCIAL_LINKS } from "../../data/social-links"
-import { Panel } from "../panel"
+import { Panel, PanelHeader, PanelTitle } from "../panel"
 import { SocialLinkItem } from "./social-link-item"
 
 export function SocialLinks() {
   return (
     <Panel className="before:content-none after:content-none">
-      <h2 className="sr-only">Social Links</h2>
+      <PanelHeader>
+        <PanelTitle>Connect</PanelTitle>
+      </PanelHeader>
 
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-0 -z-1 grid grid-cols-2 gap-2 md:grid-cols-3">
-          <div className="border-r border-line" />
-          <div className="border-l border-line md:border-x" />
-          <div className="border-l border-line max-md:hidden" />
-        </div>
-
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 md:grid-cols-3">
+      <div className="px-4 py-4 sm:px-8 sm:py-5">
+        <div className="flex flex-wrap gap-3 sm:gap-5">
           {SOCIAL_LINKS.map((link, index) => {
             return <SocialLinkItem key={index} {...link} />
           })}

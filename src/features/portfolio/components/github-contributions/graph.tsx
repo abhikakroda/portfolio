@@ -30,14 +30,14 @@ export function GitHubContributionGraph({
 
   return (
     <ContributionGraph
-      className="mx-auto py-2"
+      className="mx-auto overflow-x-auto py-2"
       data={data}
       blockSize={11}
       blockMargin={3}
       blockRadius={2}
     >
       <ContributionGraphCalendar
-        className="no-scrollbar px-2"
+        className="no-scrollbar min-w-[760px] px-2 sm:min-w-0"
         title="GitHub Contributions"
       >
         {({ activity, dayIndex, weekIndex }) => (

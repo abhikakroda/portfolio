@@ -1,267 +1,86 @@
-import {
-  CodeXmlIcon,
-  DraftingCompassIcon,
-  GraduationCapIcon,
-  LightbulbIcon,
-} from "lucide-react"
+import { CodeXmlIcon, GraduationCapIcon, LightbulbIcon } from "lucide-react"
 
 import type { Experience } from "../types/experiences"
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "shadcncraft",
-    companyName: "shadcncraft",
-    companyLogo: "https://assets.chanhdai.com/images/companies/shadcncraft.svg",
-    companyWebsite: "https://shadcncraft.com",
+    id: "iisc-cense",
+    companyName: "Indian Institute of Science (CeNSE Lab), Bangalore, India",
     positions: [
       {
         id: "1",
-        title: "Design Engineer",
+        title: "AI/ML Intern – Semiconductor Control & Fault Detection",
         employmentPeriod: {
-          start: "01.2026",
+          start: "Add dates",
         },
-        employmentType: "Full-time",
+        employmentType: "Internship",
         icon: <CodeXmlIcon />,
-        description:
-          "- Work on the registry and React component library.\n- Design and build Pro application components and blocks, from Figma to production-ready React.",
+        description: `- Developed AI/ML models for fault detection in semiconductor systems.
+- Worked on process monitoring and predictive maintenance techniques.
+- Applied data-driven approaches to improve device reliability and yield.
+- Collaborated with researchers on real-time control systems using ML.`,
         skills: [
-          "TypeScript",
-          "Next.js",
-          "Tailwind CSS",
-          "shadcn/registry",
-          "Figma",
+          "AI/ML",
+          "Fault Detection",
+          "Predictive Maintenance",
+          "Process Monitoring",
+          "Semiconductor Systems",
+          "Real-time Control",
         ],
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
-    id: "quaric",
-    companyName: "Quaric",
-    companyLogo: "https://assets.chanhdai.com/images/companies/quaric.svg",
-    companyWebsite: "https://quaric.com",
+    id: "drdo-sspl",
+    companyName: "Solid State Physics Laboratory (DRDO), Delhi, India",
     positions: [
       {
-        id: "2",
-        title: "Design Engineer",
+        id: "1",
+        title: "Research Intern – Semiconductor Devices & Applications",
         employmentPeriod: {
-          start: "03.2024",
+          start: "Add dates",
         },
-        employmentType: "Part-time",
-        icon: <CodeXmlIcon />,
-        description: `- Created Quaric Brand Identity.
-- Created the Quaric Design System to standardize design practices and accelerate development.
-
-In-house Project: [Quaric Website](https://quaric.com)
-- Designed the UI/UX for Quaric Website, delivering a seamless experience.
-- Developed online ordering to streamline purchases.
-- Integrated VNPAY-QR for secure transactions.
-- Registered the e-commerce site with [online.gov.vn](http://online.gov.vn/website/chi-tiet-115855) for compliance.
-
-In-house Project: [ZaDark](https://zadark.com)
-- Build and maintain ZaDark.com with Docusaurus, integrating AdSense.
-- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 20k+ active users via Chrome Web Store (as of Sep 2025).`,
+        employmentType: "Internship",
+        icon: <GraduationCapIcon />,
+        description: `- Studied semiconductor device physics and fabrication techniques.
+- Analyzed device performance characteristics and applications.
+- Assisted in experimental work related to advanced semiconductor materials.
+- Gained exposure to defense-oriented electronics and device research.`,
         skills: [
-          "Next.js",
-          "Strapi",
-          "Auth0",
-          "VNPAY-QR",
-          "Docker",
-          "NGINX",
-          "Google Cloud",
-          "Docusaurus",
-          "Extension",
-          "UI/UX Design",
-          "UX Writing",
-          "Design System",
-          "Brand Design",
-          "Figma",
-          "Research",
+          "Semiconductor Devices",
+          "Device Physics",
+          "Fabrication",
+          "Experimental Research",
+          "Materials Analysis",
+          "Electronics",
         ],
       },
+    ],
+  },
+  {
+    id: "cdac-noida",
+    companyName: "Centre for Development of Advanced Computing, Noida, India",
+    positions: [
       {
         id: "1",
-        title: "Founder",
+        title: "Cybersecurity Intern",
         employmentPeriod: {
-          start: "03.2024",
+          start: "Add dates",
         },
-        employmentType: "Part-time",
+        employmentType: "Internship",
         icon: <LightbulbIcon />,
-        skills: ["Business Ownership", "Business Law", "Business Tax"],
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-  {
-    id: "simplamo",
-    companyName: "Simplamo",
-    companyLogo: "https://assets.chanhdai.com/images/companies/simplamo.webp",
-    positions: [
-      {
-        id: "2",
-        title: "Senior Frontend Developer",
-        employmentPeriod: {
-          start: "10.2022",
-          end: "01.2026",
-        },
-        employmentType: "Full-time",
-        icon: <CodeXmlIcon />,
-        description: `- Built Tree & Gantt views features to improve goal organization, visibility, and progress tracking.
-- Developed [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
-- Developed [Whiteboards](https://help.simplamo.com/features/whiteboard/overview?ref=IN-926722) with real-time collaboration.
-- Built and maintained the [Zalo Mini App](https://zalo.me/s/1736112917405511258/) for Simplamo with seamless integration.
-- Developed interactive chart and analytics widgets for the [Dashboard](https://help.simplamo.com/features/dashboard/overview) to enhance data visualization.
-- Developed and maintained core features to enhance functionality and user experience.
-- Ensured UI/UX consistency and adherence to standards.
-- Implemented robust frontend solutions for web and mobile platforms.
-- Analyzed technical capabilities and provided optimal solutions.`,
+        description: `- Worked on cybersecurity fundamentals, threat analysis, and system protection.
+- Performed vulnerability assessment and basic penetration testing.
+- Learned secure coding practices and network security concepts.
+- Contributed to projects focused on data protection and system hardening.`,
         skills: [
-          "TypeScript",
-          "Next.js",
-          "React Native",
-          "MobX",
-          "MobX-State-Tree",
-          "Tailwind CSS",
-          "Dify",
-          "Zalo Mini App",
-          "Agile",
-          "Teamwork",
-          "Research",
-          "Problem-solving",
-        ],
-      },
-      {
-        id: "1",
-        title: "UI Lead",
-        employmentPeriod: {
-          start: "10.2022",
-          end: "01.2026",
-        },
-        employmentType: "Full-time",
-        icon: <DraftingCompassIcon />,
-        description: `- Ensured UI/UX consistency and high-quality standards.
-- Designed intuitive, user-focused interfaces aligned with business goals.
-- Defined and established a cohesive UI style for Simplamo.`,
-        skills: ["Creativity", "UI/UX Design", "Figma"],
-      },
-    ],
-  },
-  {
-    id: "tungtung",
-    companyName: "Tung Tung",
-    companyLogo: "https://assets.chanhdai.com/images/companies/tungtung.webp",
-    positions: [
-      {
-        id: "3",
-        title: "Web Developer",
-        employmentPeriod: {
-          start: "2020",
-          end: "2022",
-        },
-        employmentType: "Full-time",
-        description: `- Built a scalable design system for consistency and efficiency.
-- Built a complex rich-text editor based on ProseMirror and Slate for customizable content creation.
-- Integrated APIs with the Backend Team to enhance functionality.`,
-        icon: <CodeXmlIcon />,
-        skills: [
-          "React",
-          "Redux",
-          "Storybook",
-          "Lerna",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: "2",
-        title: "Mobile Developer",
-        employmentPeriod: {
-          start: "2019",
-          end: "2020",
-        },
-        employmentType: "Full-time",
-        description: `- Rebuilt the app with React Native for better UX and performance.
-- Integrated MoMo and in-app purchases for seamless payments.
-- Optimized deployment for staging and production.
-- Published on App Store and Google Play, ensuring compliance.`,
-        icon: <CodeXmlIcon />,
-        skills: [
-          "React Native",
-          "Redux",
-          "MoMo Payment API",
-          "App Store",
-          "Google Play Store",
-          "App Center",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: "1",
-        title: "UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Full-time",
-        description: `- Designed a Landing Page for enterprise clients.
-- Redesigned the Online Quiz Platform for a modern look on web and mobile.
-- Redesigned the Pricing interface for individual customers.
-- Enhanced UX by improving usability, navigation, and user flow.`,
-        icon: <DraftingCompassIcon />,
-        skills: ["UI/UX Design", "Sketch"],
-      },
-    ],
-  },
-  {
-    id: "freelance",
-    companyName: "Freelance",
-    positions: [
-      {
-        id: "2",
-        title: "Full-stack Developer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2020",
-        },
-        employmentType: "Part-time",
-        description: `- Built an order management website with real-time delivery tracking.
-- Developed an e-commerce site for bird's nest products.
-- Created a map to display monitoring station data.
-- Designed a customizable WordPress landing page.`,
-        icon: <CodeXmlIcon />,
-        skills: [
-          "Laravel",
-          "React",
-          "Express.js",
-          "Socket.IO",
-          "MongoDB",
-          "Firebase",
-          "WordPress",
-          "Docker",
-          "NGINX",
-        ],
-      },
-      {
-        id: "1",
-        title: "Graphic & UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Part-time",
-        description: "Designed logos, posters, ads, and UI.",
-        icon: <DraftingCompassIcon />,
-        skills: [
-          "Creativity",
-          "UI/UX Design",
-          "Graphic Design",
-          "Sketch",
-          "Adobe Photoshop",
-          "Adobe Illustrator",
+          "Cybersecurity",
+          "Threat Analysis",
+          "Vulnerability Assessment",
+          "Penetration Testing",
+          "Secure Coding",
+          "Network Security",
         ],
       },
     ],
@@ -271,80 +90,31 @@ In-house Project: [ZaDark](https://zadark.com)
     companyName: "Education",
     positions: [
       {
-        id: "3",
-        title: "University of Science — VNUHCM",
-        employmentPeriod: {
-          start: "08.2018",
-          end: "10.2026",
-        },
-        icon: <GraduationCapIcon />,
-        description: `- Currently studying for a Bachelor's degree in Information Systems.
-- Language Proficiency: B1 level in English (CEFR).
-- Achieved several awards, including:
-  - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
-  - 2nd Prize — Business Startup Competition 2019`,
-        skills: [
-          "C++",
-          "Java",
-          "Python",
-          "PHP",
-          "DSA",
-          "Advanced Databases",
-          "Systems Design",
-          "Distributed Systems",
-          "Software Engineering",
-          "Teamwork",
-        ],
-      },
-      {
         id: "2",
-        title: "Ly Tu Trong High School for the Gifted — Can Tho City",
+        title: "National Institute of Technology Srinagar",
         employmentPeriod: {
-          start: "08.2015",
-          end: "06.2018",
+          start: "2023",
+          end: "2027",
         },
+        employmentType:
+          "Bachelor of Technology - BTech, Electronic and communication engineering",
         icon: <GraduationCapIcon />,
-        description: `- Student of the Specialized Computer Science Program.
-- Granted direct admission to university due to achieving 3rd Prize at the national level.
-- [Achieved numerous awards](https://baocantho.com.vn/nguyen-chanh-dai-17-tuoi-va-19-giai-thuong-a97348.html) at city and national levels, including:
-  - [3rd Prize](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm) — National Science and Engineering Fair 2018 (ViSEF)
-  - 1st Prize — Can Tho City Science and Engineering Fair 2018
-  - Creativity Award — Binh Duong Hackathon 2017
-  - Consolation Prize — National Youth and Children's Creativity Contest 2016
-  - [1st Prize](https://www.youtube.com/watch?v=OYgugvjqU4A) — Can Tho City Youth and Children's Creativity Contest 2016
-  - 3rd Prize — National Young Informatics Contest 2016
-- Achieved the title of Outstanding Student from Grade 10-12.
-- Selected for the National Excellent Student Contest in Informatics for two consecutive years during high school.
-- Honored on the school's "Hall of Fame" for academic achievements.
-- Developed a feature using Node.js and Pandoc to recognize multiple-choice questions from .docx files and upload them to an [online quiz platform](https://youtu.be/QjR99wdmTyo) I created.
-- Developed websites based on Laravel framework.
-- Built websites with PHP and MySQL, following the MVC architecture.`,
-        skills: [
-          "Algorithms",
-          "C++",
-          "PHP",
-          "MySQL",
-          "Laravel",
-          "Node.js",
-          "Pandoc",
-        ],
+        description:
+          "- Pursuing Bachelor of Technology in Electronic and Communication Engineering.",
+        skills: ["Electronics", "Communication Engineering", "BTech"],
       },
       {
         id: "1",
-        title: "Thuan Hung Secondary School",
+        title: "Board of Secondary Education, Rajasthan (RBSE)",
         employmentPeriod: {
-          start: "08.2011",
-          end: "06.2015",
+          start: "08.2020",
+          end: "03.2022",
         },
+        employmentType:
+          "Senior Secondary (Class XII), Physics, Chemistry, Mathematics",
         icon: <GraduationCapIcon />,
-        description: `- Recognized as the most outstanding student of the district.
-- Achieved numerous awards at city and national levels:
-  - Consolation Prize — National Young Informatics Contest 2015
-  - Consolation Prize — National Young Informatics Contest 2014
-  - 1st Prize — Can Tho City Young Informatics Contest 2014
-- Achieved the title of Outstanding Student from Grade 6-9.
-- Developed websites using the open-source NukeViet CMS.`,
-        skills: ["Pascal", "NukeViet", "HTML", "CSS", "JavaScript"],
+        description: "- Grade: 92.20%",
+        skills: ["Physics", "Chemistry", "Mathematics"],
       },
     ],
   },

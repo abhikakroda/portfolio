@@ -324,6 +324,18 @@
 }
 
 @layer components {
+  .page-reveal > * {
+    @apply motion-safe:animate-[fade-up-soft_440ms_ease-out_both];
+  }
+
+  .motion-surface {
+    @apply transition-[transform,box-shadow,border-color,background-color,opacity] duration-200 ease-out;
+  }
+
+  .motion-press {
+    @apply active:scale-[0.985];
+  }
+
   [data-rehype-pretty-code-figure] {
     @apply relative my-[1.25em] rounded-xl bg-code text-code-foreground;
 
@@ -396,6 +408,18 @@
     width: var(--fade-width, 6rem);
     height: var(--fade-height, 2.5rem);
     background: var(--fade-background, var(--fade-linear-gradient));
+  }
+}
+
+@keyframes fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

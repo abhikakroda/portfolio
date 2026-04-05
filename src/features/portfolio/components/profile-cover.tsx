@@ -1,33 +1,21 @@
-"use client"
-
-import { useRef } from "react"
-
-import { BrandContextMenu } from "@/components/brand-context-menu"
-import { ChanhDaiMark } from "@/components/chanhdai-mark"
-import { Magnet } from "@/components/react-bits/magnet"
 import { cn } from "@/lib/utils"
 
 export function ProfileCover() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
   return (
-    <BrandContextMenu>
-      <div
-        ref={containerRef}
-        className={cn(
-          "aspect-2/1 border-x border-line select-none sm:aspect-3/1",
-          "flex items-center justify-center text-black dark:text-white",
-          "screen-line-top screen-line-bottom before:-top-px after:-bottom-px",
-          "bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:var(--color-zinc-950)]/5 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5"
-        )}
-      >
-        <Magnet containerRef={containerRef} magnetStrength={6}>
-          <ChanhDaiMark
-            id="js-cover-mark"
-            className="h-14 w-28 sm:h-16 sm:w-32"
-          />
-        </Magnet>
+    <div
+      className={cn(
+        "border-x border-line select-none",
+        "screen-line-top screen-line-bottom before:-top-px after:-bottom-px"
+      )}
+    >
+      <div className="px-5 py-5 sm:px-10 sm:py-8">
+        <div
+          className={cn(
+            "h-20 w-full sm:h-36",
+            "bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[16px_16px] bg-center [--pattern-foreground:var(--color-zinc-950)]/14 dark:[--pattern-foreground:var(--color-white)]/16"
+          )}
+        />
       </div>
-    </BrandContextMenu>
+    </div>
   )
 }

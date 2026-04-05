@@ -89,12 +89,6 @@ const MENU_LINKS: CommandLinkItem[] = [
     icon: <Icons.favourite />,
     shortcut: "GS",
   },
-  {
-    title: "Wall of Love",
-    href: "/wall-of-love",
-    icon: <Icons.bookHeart />,
-    shortcut: "GW",
-  },
 ]
 
 const PORTFOLIO_LINKS: CommandLinkItem[] = [

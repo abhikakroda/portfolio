@@ -10,7 +10,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
   return (
     <div
       id={`experience-${experience.id}`}
-      className="screen-line-bottom scroll-mt-14 space-y-4 py-4"
+      className="screen-line-bottom scroll-mt-14 space-y-3 py-4"
     >
       <div className="flex items-center gap-3">
         <div className="flex size-6 shrink-0 items-center justify-center select-none">
@@ -54,7 +54,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
         )}
       </div>
 
-      <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+      <div className="space-y-3 pl-9">
         {experience.positions.map((position) => (
           <ExperiencePositionItem key={position.id} position={position} />
         ))}

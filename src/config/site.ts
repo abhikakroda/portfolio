@@ -16,20 +16,8 @@ export const META_THEME_COLORS = {
 
 export const MAIN_NAV: NavItem[] = [
   {
-    title: "Components",
-    href: "/components",
-  },
-  {
-    title: "Blocks",
-    href: "/blocks",
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
-  {
-    title: "Sponsors",
-    href: "/sponsors",
+    title: "Projects",
+    href: "/#projects",
   },
 ]
 
@@ -42,7 +30,7 @@ export const MOBILE_NAV: NavItem[] = [
 ]
 
 export const X_USERNAME = "@iamncdai"
-export const GITHUB_USERNAME = "ncdai"
+export const GITHUB_USERNAME = "abhikakroda"
 export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
 

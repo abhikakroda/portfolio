@@ -2,21 +2,14 @@ import type { Metadata } from "next"
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 
 import { About } from "@/features/portfolio/components/about"
-import { Awards } from "@/features/portfolio/components/awards"
-import { Blog } from "@/features/portfolio/components/blog"
-import { Bookmarks } from "@/features/portfolio/components/bookmarks"
 import { Certifications } from "@/features/portfolio/components/certifications"
-import { Components } from "@/features/portfolio/components/components"
+import { Education } from "@/features/portfolio/components/education"
 import { Experiences } from "@/features/portfolio/components/experiences"
 import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
-import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileCover } from "@/features/portfolio/components/profile-cover"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
-import { Sponsors } from "@/features/portfolio/components/sponsors"
-import { TechStack } from "@/features/portfolio/components/tech-stack"
-import { Testimonials } from "@/features/portfolio/components/testimonials"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
@@ -36,50 +29,33 @@ export default function Page() {
         }}
       />
 
-      <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
+      <div className="page-reveal mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
         <ProfileCover />
         <ProfileHeader />
         <Separator />
 
-        <Overview />
+        <About />
+        <Separator />
+
         <SocialLinks />
         <Separator />
 
-        <About />
-        <div className="flex h-2 w-full border-x border-line" />
-
-        <Testimonials />
-        <div className="flex h-2 w-full border-x border-line" />
-
         <GitHubContributions />
-        <Separator />
-
-        <Sponsors />
-        <Separator />
-
-        <TechStack />
-        <Separator />
-
-        <Components />
-        <Separator />
-
-        <Blog />
         <Separator />
 
         <Experiences />
         <Separator />
 
-        <Projects />
+        <Education />
         <Separator />
 
-        <Awards />
+        <Projects />
         <Separator />
 
         <Certifications />
         <Separator />
 
-        <Bookmarks />
-        <Separator />
+        <QuoteSection />
       </div>
     </>
   )
@@ -110,5 +86,30 @@ function Separator({ className }: { className?: string }) {
         className
       )}
     />
+  )
+}
+
+function QuoteSection() {
+  return (
+    <section className="screen-line-bottom border-x border-line px-6 py-14 sm:px-10 sm:py-16">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="pb-4 text-[2.8rem] leading-none text-muted-foreground/30 sm:text-[3rem]">
+          &quot;
+        </div>
+
+        <blockquote className="mx-auto max-w-[50rem] text-[1.72rem] leading-[1.35] font-medium text-balance text-foreground/75 italic sm:text-[1.9rem]">
+          I was not born with a whole lot of natural talent... but I work hard
+          and I never give up.
+        </blockquote>
+
+        <div className="pt-6">
+          <div className="inline-flex items-center gap-3 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase sm:text-xs">
+            <span className="h-px w-7 bg-line" />
+            <span>Rock Lee</span>
+            <span className="h-px w-7 bg-line" />
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

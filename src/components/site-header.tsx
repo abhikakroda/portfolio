@@ -1,20 +1,15 @@
+import { ChevronDownIcon } from "lucide-react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import blocks from "@/__registry__/__blocks__.json"
-import { DesktopNav } from "@/components/desktop-nav"
-import { NavItemGitHub } from "@/components/nav-item-github"
-import { SiteHeaderMark } from "@/components/site-header-mark"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Separator } from "@/components/ui/separator"
-import { MAIN_NAV, MOBILE_NAV } from "@/config/site"
+import { MOBILE_NAV } from "@/config/site"
 import { getAllDocs } from "@/features/doc/data/documents"
 import type { DocPreview } from "@/features/doc/types/document"
+import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
-
-const BrandContextMenu = dynamic(() =>
-  import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
-)
 
 const CommandMenu = dynamic(() =>
   import("@/components/command-menu").then((mod) => mod.CommandMenu)
@@ -26,6 +21,8 @@ const MobileNav = dynamic(() =>
 
 export function SiteHeader() {
   const docs = getAllDocs()
+  const initials =
+    `${USER.firstName[0] ?? ""}${USER.lastName[0] ?? ""}`.toUpperCase()
 
   // Minimize data serialized to client component - only send necessary fields
   const docPreviews: DocPreview[] = docs.map((doc) => ({
@@ -37,27 +34,41 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2">
-        <div className="screen-line-top screen-line-bottom mx-auto flex h-12 items-center justify-between gap-2 border-x border-line px-2 group-has-data-[slot=layout-wide]/layout:container after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl">
-          <BrandContextMenu>
+        <div className="screen-line-top screen-line-bottom mx-auto flex h-12 items-center justify-between gap-3 border-x border-line px-3 group-has-data-[slot=layout-wide]/layout:container after:z-1 after:transition-[background-color] sm:px-4 md:max-w-3xl">
+          <Link
+            href="/"
+            className="min-w-14 font-pixel-square text-xl leading-none text-foreground sm:min-w-24 sm:text-2xl"
+          >
+            {initials}
+          </Link>
+
+          <nav className="hidden items-center gap-8 sm:flex">
             <Link
-              className="transition-[scale] ease-out active:scale-[0.98] has-data-[visible=false]:pointer-events-none [&_svg]:h-8"
+              className="font-mono text-sm font-medium text-foreground"
               href="/"
-              aria-label="Home"
             >
-              <SiteHeaderMark />
+              Home
             </Link>
-          </BrandContextMenu>
+            <Link
+              className="font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground"
+              href="/#projects"
+            >
+              Projects
+            </Link>
+            <button
+              type="button"
+              className="flex items-center gap-1 font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground"
+            >
+              <span>More</span>
+              <ChevronDownIcon className="size-3.5" />
+            </button>
+          </nav>
 
-          <div className="flex-1" />
-
-          <DesktopNav items={MAIN_NAV} />
-
-          <div className="flex items-center *:first:mr-2 max-sm:*:data-[slot=command-menu-trigger]:hidden">
+          <div className="flex items-center gap-2 max-sm:ml-auto">
             <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />
-            <NavItemGitHub />
             <Separator
               orientation="vertical"
-              className="mx-2 data-vertical:h-4 data-vertical:self-center"
+              className="mx-1.5 sm:mx-2 data-vertical:h-4 data-vertical:self-center"
             />
             <ThemeToggle />
           </div>

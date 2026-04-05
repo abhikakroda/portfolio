@@ -1,8 +1,10 @@
-import { ArrowUpRightIcon } from "lucide-react"
+"use client"
+
 import Image from "next/image"
 
 import { UTM_PARAMS } from "@/config/site"
 import type { SocialLink } from "@/features/portfolio/types/social-links"
+import { triggerHaptic } from "@/lib/haptics"
 import { cn } from "@/lib/utils"
 import { addQueryParams } from "@/utils/url"
 
@@ -10,30 +12,28 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
   return (
     <a
       className={cn(
-        "flex cursor-pointer items-center gap-4 p-4 pr-2 transition-[background-color] ease-out hover:bg-accent-muted",
-        "max-md:nth-[2n+1]:screen-line-top max-md:nth-[2n+1]:screen-line-bottom",
-        "md:nth-[3n+1]:screen-line-top md:nth-[3n+1]:screen-line-bottom"
+        "motion-surface motion-press group inline-flex h-11 items-center gap-2.5 rounded-[0.9rem] border border-line bg-background px-4 text-foreground shadow-[0_2px_8px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 hover:border-line/80 hover:shadow-[0_8px_18px_rgba(15,23,42,0.08)] sm:h-12 sm:gap-3 sm:rounded-[1rem] sm:px-4.5"
       )}
       href={addQueryParams(href, UTM_PARAMS)}
+      onPointerDown={() => triggerHaptic()}
       target="_blank"
       rel="noopener"
     >
-      <div className="relative size-8 shrink-0">
+      <div className="relative h-[18px] w-[18px] shrink-0 sm:h-5 sm:w-5">
         <Image
-          className="rounded-lg select-none corner-squircle supports-corner-shape:rounded-[50%]"
+          className="select-none"
           src={icon}
           alt={title}
-          width={32}
-          height={32}
+          width={20}
+          height={20}
           quality={100}
           unoptimized
         />
-        <div className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/10 corner-squircle ring-inset dark:ring-white/15 supports-corner-shape:rounded-[50%]" />
       </div>
 
-      <h3 className="flex-1 font-medium">{title}</h3>
-
-      <ArrowUpRightIcon className="size-4 text-muted-foreground" />
+      <span className="text-[15px] font-medium tracking-tight whitespace-nowrap sm:text-base">
+        {title}
+      </span>
     </a>
   )
 }

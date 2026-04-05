@@ -5,6 +5,10 @@ import { Panel, PanelHeader, PanelTitle } from "../panel"
 import { ExperienceItem } from "./experience-item"
 
 export function Experiences() {
+  const workExperiences = EXPERIENCES.filter(
+    (experience) => experience.id !== "education"
+  )
+
   return (
     <Panel id="experience">
       <PanelHeader>
@@ -12,7 +16,7 @@ export function Experiences() {
       </PanelHeader>
 
       <div className="pr-2 pl-4">
-        {EXPERIENCES.map((experience) => (
+        {workExperiences.map((experience) => (
           <ExperienceItem key={experience.id} experience={experience} />
         ))}
       </div>

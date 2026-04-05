@@ -26,22 +26,21 @@ export function ExperiencePositionItem({
 
   return (
     <Collapsible
-      className="relative last:before:absolute last:before:h-full last:before:w-4 last:before:bg-background"
+      className="relative"
       defaultOpen={position.isExpanded}
       disabled={!position.description}
     >
       <CollapsibleTrigger
         className={cn(
           "group block w-full text-left",
-          "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg before:transition-[background-color] before:ease-out hover:before:bg-accent-muted",
-          "outline-none focus-visible:before:ring-2 focus-visible:before:ring-ring/50 focus-visible:before:ring-inset",
-          "data-disabled:before:content-none"
+          "rounded-xl border border-line/70 bg-muted/15 px-4 py-4 transition-[background-color,border-color] ease-out hover:bg-accent-muted",
+          "outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset"
         )}
       >
-        <div className="relative z-1 mb-1 flex items-center gap-3">
+        <div className="mb-1 flex items-center gap-3">
           <div
             className={cn(
-              "flex size-6 shrink-0 items-center justify-center rounded-lg",
+              "flex size-8 shrink-0 items-center justify-center rounded-xl",
               "bg-muted text-muted-foreground",
               "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
               "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
@@ -50,14 +49,16 @@ export function ExperiencePositionItem({
             {position.icon ?? <BriefcaseBusinessIcon />}
           </div>
 
-          <h4 className="flex-1 font-medium text-balance">{position.title}</h4>
+          <h4 className="flex-1 text-base font-medium text-balance text-foreground">
+            {position.title}
+          </h4>
 
           <div className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:size-4">
             <CollapsibleChevronsIcon duration={0.15} />
           </div>
         </div>
 
-        <div className="flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 pl-11 text-sm text-muted-foreground">
           {position.employmentType && (
             <>
               <dl>
@@ -92,14 +93,14 @@ export function ExperiencePositionItem({
 
       <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <ProseMono className="pt-2 pl-9">
+          <ProseMono className="pt-3 pl-11">
             <Markdown>{position.description}</Markdown>
           </ProseMono>
         )}
       </CollapsibleContent>
 
       {Array.isArray(position.skills) && position.skills.length > 0 && (
-        <ul className="flex flex-wrap gap-1.5 pt-3 pl-9">
+        <ul className="flex flex-wrap gap-1.5 pt-3 pl-11">
           {position.skills.map((skill, index) => (
             <li key={index} className="flex">
               <Tag>{skill}</Tag>
