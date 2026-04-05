@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://chanhdai.com",
+  url: process.env.APP_URL || "https://portfolio-abhikakrodda.vercel.app",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -29,13 +29,13 @@ export const MOBILE_NAV: NavItem[] = [
   ...MAIN_NAV,
 ]
 
-export const X_USERNAME = "@iamncdai"
+export const X_USERNAME = "@abhikakroda"
 export const GITHUB_USERNAME = "abhikakroda"
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com"
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com"
+export const SOURCE_CODE_GITHUB_REPO = "abhikakroda/portfolio"
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/abhikakroda/portfolio"
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai"
+export const SPONSORSHIP_URL = "https://github.com/abhikakroda"
 
 export const UTM_PARAMS = {
-  utm_source: "chanhdai.com",
+  utm_source: "portfolio-abhikakrodda",
 }

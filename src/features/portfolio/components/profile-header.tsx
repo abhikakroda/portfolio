@@ -1,5 +1,3 @@
-import { EyeIcon } from "lucide-react"
-
 import { USER } from "@/features/portfolio/data/user"
 
 import { VerifiedIcon } from "./verified-icon"
@@ -18,13 +16,6 @@ export function ProfileHeader() {
         </div>
 
         <div className="w-full min-w-0 flex-1">
-          <div className="mb-3 flex items-start justify-between gap-4">
-            <div className="flex items-center gap-1 text-muted-foreground">
-              <EyeIcon className="size-4" />
-              <span className="font-mono text-xs sm:text-sm">11,631</span>
-            </div>
-          </div>
-
           <div className="flex flex-wrap items-center gap-1 sm:gap-2">
             <h1 className="font-pixel-square text-[1.35rem] leading-[0.95] text-foreground sm:text-[1.95rem] md:text-[2.15rem]">
               {USER.displayName}

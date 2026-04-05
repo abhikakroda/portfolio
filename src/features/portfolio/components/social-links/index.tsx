@@ -4,7 +4,7 @@ import { SocialLinkItem } from "./social-link-item"
 
 export function SocialLinks() {
   return (
-    <Panel className="before:content-none after:content-none">
+    <Panel id="connect" className="before:content-none after:content-none">
       <PanelHeader>
         <PanelTitle>Connect</PanelTitle>
       </PanelHeader>

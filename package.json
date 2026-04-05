@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "portfolio",
   "version": "0.1.0",
   "description": "A minimal, pixel-perfect dev portfolio, shadcn registry, and blog.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "https://portfolio-abhikakrodda.vercel.app",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Abhishek Meena",
+    "email": "abhikakroda@gmail.com",
+    "url": "https://github.com/abhikakroda"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Abhishek Meena",
+      "email": "abhikakroda@gmail.com",
+      "url": "https://github.com/abhikakroda"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+https://github.com/abhikakroda/portfolio.git"
   },
   "scripts": {
     "dev": "portless ncdai next dev",

@@ -19,6 +19,8 @@ const SUGGESTIONS = [
   "What is Abhishek building on GitHub?",
   "What certifications does Abhishek have?",
   "How can I contact Abhishek?",
+  "How should I start learning AI engineering?",
+  "What makes a strong portfolio project?",
 ]
 
 type AskResponse = {
@@ -174,7 +176,8 @@ export function CommandMenu({
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p>
                   Ask about projects, GitHub work, education, internships,
-                  certifications, skills, or contact details.
+                  certifications, skills, contact details, or general software
+                  and AI questions.
                 </p>
                 <p className="flex items-center gap-2">
                   <CornerDownLeftIcon className="size-4" />

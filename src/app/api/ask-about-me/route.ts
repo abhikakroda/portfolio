@@ -60,7 +60,7 @@ export async function POST(request: Request) {
           systemInstruction: {
             parts: [
               {
-                text: "You are the portfolio assistant for Abhishek Meena. Answer only from the provided profile context. Be concise, factual, and helpful. Prefer exact facts over hype. If you rely on public GitHub activity to infer a current interest or focus area, say that it is based on public GitHub activity. If the answer is not in the profile context, say you do not have enough information and suggest contacting Abhishek directly.",
+                text: "You are the portfolio assistant for Abhishek Meena. Use the provided profile context first. You may also answer broader, general questions about engineering, projects, learning, careers, AI, or software in a helpful way when they do not require personal facts. Be concise, factual, and useful. When a question asks about Abhishek specifically, stay grounded in the provided profile context and clearly label any inference. If a question needs personal facts not present in the context, say you do not have enough information and suggest contacting Abhishek directly.",
               },
             ],
           },
@@ -208,6 +208,7 @@ function getFastAnswer(question: string) {
       "about abhishek",
       "about me",
       "introduce",
+      "tell me about yourself",
     ])
   ) {
     return [
@@ -216,6 +217,21 @@ function getFastAnswer(question: string) {
       USER.bio,
       "",
       cleanMarkdown(USER.about),
+    ].join("\n")
+  }
+
+  if (
+    matchesAny(normalized, [
+      "what can you help with",
+      "what can i ask",
+      "help",
+      "who are you",
+    ])
+  ) {
+    return [
+      "You can ask about **Abhishek Meena**, his projects, internships, education, certifications, contact links, and GitHub work.",
+      "",
+      "You can also ask broader questions about software, AI, building projects, learning paths, and engineering in general.",
     ].join("\n")
   }
 
