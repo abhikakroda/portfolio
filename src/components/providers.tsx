@@ -14,7 +14,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <JotaiProvider>
       <ThemeProvider
         enableSystem
-        disableTransitionOnChange
         enableColorScheme
         storageKey="theme"
         defaultTheme="system"

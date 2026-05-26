@@ -10,9 +10,9 @@ import type { Project } from "../../types/projects"
 export function ProjectItem({ project }: { project: Project }) {
   const statusColor =
     project.status === "Live"
-      ? "bg-green-500"
+      ? "bg-green-500 shadow-[0_0_6px_2px_rgba(34,197,94,0.6)]"
       : project.status === "Building"
-        ? "bg-red-500"
+        ? "bg-red-500 shadow-[0_0_6px_2px_rgba(239,68,68,0.6)]"
         : "bg-zinc-400"
 
   return (
@@ -39,7 +39,9 @@ export function ProjectItem({ project }: { project: Project }) {
         <h3 className="text-base font-semibold">{project.title}</h3>
         {project.status && (
           <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-            <span className={cn("size-2 rounded-full", statusColor)} />
+            <span
+              className={cn("size-2 animate-pulse rounded-full", statusColor)}
+            />
             {project.status}
           </span>
         )}

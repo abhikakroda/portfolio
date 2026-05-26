@@ -630,3 +630,10 @@
     display: none;
   }
 }
+
+/* Theme toggle circle-reveal animation */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
