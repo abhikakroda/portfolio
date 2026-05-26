@@ -5,17 +5,23 @@ import { About } from "@/features/portfolio/components/about"
 import { Certifications } from "@/features/portfolio/components/certifications"
 import { Education } from "@/features/portfolio/components/education"
 import { Experiences } from "@/features/portfolio/components/experiences"
-import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { ProfileCover } from "@/features/portfolio/components/profile-cover"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
+import { TechStack } from "@/features/portfolio/components/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: `${USER.displayName} – ${USER.jobTitle}`,
+    description:
+      "ECE student at NIT Srinagar, AI/ML intern at IISc Bangalore. Building at the intersection of AI and real-world impact.",
+    url: "/",
   },
 }
 
@@ -40,9 +46,6 @@ export default function Page() {
         <SocialLinks />
         <Separator />
 
-        <GitHubContributions />
-        <Separator />
-
         <Experiences />
         <Separator />
 
@@ -52,10 +55,10 @@ export default function Page() {
         <Projects />
         <Separator />
 
-        <Certifications />
+        <TechStack />
         <Separator />
 
-        <QuoteSection />
+        <Certifications />
       </div>
     </>
   )
@@ -80,36 +83,11 @@ function Separator({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-8 w-full border-x border-line",
-        "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-line)]/56",
+        "screen-line-top screen-line-bottom relative flex h-8 w-full border-x border-line",
         className
       )}
-    />
-  )
-}
-
-function QuoteSection() {
-  return (
-    <section className="screen-line-bottom border-x border-line px-6 py-14 sm:px-10 sm:py-16">
-      <div className="mx-auto max-w-3xl text-center">
-        <div className="pb-4 text-[2.8rem] leading-none text-muted-foreground/30 sm:text-[3rem]">
-          &quot;
-        </div>
-
-        <blockquote className="mx-auto max-w-[50rem] text-[1.72rem] leading-[1.35] font-medium text-balance text-foreground/75 italic sm:text-[1.9rem]">
-          I was not born with a whole lot of natural talent... but I work hard
-          and I never give up.
-        </blockquote>
-
-        <div className="pt-6">
-          <div className="inline-flex items-center gap-3 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase sm:text-xs">
-            <span className="h-px w-7 bg-line" />
-            <span>Rock Lee</span>
-            <span className="h-px w-7 bg-line" />
-          </div>
-        </div>
-      </div>
-    </section>
+    >
+      <div className="absolute -left-[100vw] -z-1 h-8 w-[200vw] bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] [--pattern-foreground:var(--color-line)]/56" />
+    </div>
   )
 }

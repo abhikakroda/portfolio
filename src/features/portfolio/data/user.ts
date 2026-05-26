@@ -7,7 +7,7 @@ export const USER: User = {
   username: "abhikakroda",
   gender: "male",
   pronouns: "he/him",
-  bio: "Creating with code. Small details matter.",
+  bio: "Abhishek Meena – ECE student at NIT Srinagar, AI/ML intern at IISc Bangalore. Building at the intersection of AI and real-world impact.",
   flipSentences: [
     "Creating with code. Small details matter.",
     "ECE student building practical tools.",
@@ -28,6 +28,17 @@ export const USER: User = {
   ogImage: "/abhishek-avatar.jpg",
   namePronunciationUrl: "",
   timeZone: "Asia/Kolkata",
-  keywords: ["abhishek meena", "abhikakroda", "abhishek", "meena", "jaipur"],
+  keywords: [
+    "Abhishek Meena",
+    "abhishek meena portfolio",
+    "abhikakroda",
+    "abhishek meena NIT Srinagar",
+    "abhishek meena IISc",
+    "AI ML engineer",
+    "ECE student",
+    "abhishek meena developer",
+    "abhishek meena jaipur",
+    "full stack developer india",
+  ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 }

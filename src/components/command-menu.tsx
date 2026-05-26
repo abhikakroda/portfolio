@@ -23,11 +23,7 @@ const SUGGESTIONS = [
   "What projects has Abhishek built?",
   "Tell me about Abhishek's internships.",
   "What is Abhishek studying?",
-  "What is Abhishek building on GitHub?",
-  "What certifications does Abhishek have?",
   "How can I contact Abhishek?",
-  "How should I start learning AI engineering?",
-  "What makes a strong portfolio project?",
 ]
 
 type AskResponse = {
@@ -168,7 +164,7 @@ export function CommandMenu({
                 <button
                   key={suggestion}
                   type="button"
-                  className="motion-surface motion-press rounded-full border border-line bg-background px-3 py-1.5 text-left text-sm text-muted-foreground hover:bg-accent-muted hover:text-foreground"
+                  className="motion-surface motion-press rounded-full border border-line bg-background px-3 py-1.5 text-left text-sm text-muted-foreground hover:bg-accent-muted hover:text-foreground dark:border-transparent dark:bg-muted/40"
                   onClick={() => {
                     setQuestion(suggestion)
                     void askAI(suggestion)
@@ -337,7 +333,7 @@ function CommandMenuTrigger({ ...props }: React.ComponentProps<typeof Button>) {
     >
       <Icons.search />
 
-      <span className="font-sans text-sm/4 font-medium sm:hidden">Ask…</span>
+      <span className="font-sans text-sm/4 font-medium">Ask about me</span>
 
       <KbdGroup className="hidden sm:in-[.os-macos_&]:flex">
         <Kbd className="w-5 min-w-5">⌘</Kbd>

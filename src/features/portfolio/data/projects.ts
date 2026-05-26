@@ -18,12 +18,10 @@ export const PROJECTS: Project[] = [
       "PWA",
       "Multi-model AI",
     ],
-    description: `A modern multi-model AI chat platform supporting Mistral, Qwen, DeepSeek, and more.
-- Voice chat and image analysis
-- Code assistance and deep research workflows
-- Translation, summarization, and scheduled AI tasks
-- Built as a fast, installable PWA with Supabase-backed infrastructure`,
-    isExpanded: true,
+    description:
+      "A modern multi-model AI chat platform supporting Mistral, Qwen, DeepSeek, and more.",
+    image: "/projects/quanta-ai.png",
+    status: "Live",
   },
   {
     id: "filetools",
@@ -41,10 +39,10 @@ export const PROJECTS: Project[] = [
       "Image Processing",
       "Client-side Web App",
     ],
-    description: `A browser-based utility suite for image and PDF processing with no server uploads required.
-- Compress, convert, crop, and resize images
-- Merge, split, compress, and export PDFs
-- Fast client-side workflow focused on privacy and usability`,
+    description:
+      "A browser-based utility suite for image and PDF processing with no server uploads required.",
+    image: "/projects/filetools.png",
+    status: "Live",
   },
   {
     id: "ece-power-lab",
@@ -62,10 +60,10 @@ export const PROJECTS: Project[] = [
       "Digital Logic",
       "Simulation",
     ],
-    description: `An interactive ECE workbench for students and engineers.
-- Circuit solving and signal visualization
-- Digital logic, communication systems, and control systems practice
-- Formula engine, flashcards, interview prep, and simulation-focused learning tools`,
+    description:
+      "An interactive ECE workbench for students and engineers with circuit solving and signal visualization.",
+    image: "/projects/ece-power-lab.png",
+    status: "Building",
   },
   {
     id: "opencare",
@@ -83,10 +81,9 @@ export const PROJECTS: Project[] = [
       "Admin Dashboard",
       "Responsive Web App",
     ],
-    description: `A hospital operations platform built for patients and administrators.
-- Smart queue and token generation
-- Live queue position, estimated wait times, and realtime updates
-- Doctor, medicine, bed, and equipment availability management
-- Admin workflows with responsive patient-facing access`,
+    description:
+      "A hospital operations platform with smart queue, live wait times, and admin workflows.",
+    image: "/projects/opencare.png",
+    status: "Live",
   },
 ]

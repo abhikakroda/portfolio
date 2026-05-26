@@ -13,6 +13,8 @@ export type ExperiencePosition = {
   }
   /** Full-time | Part-time | Contract | Internship, etc. */
   employmentType?: string
+  /** Location shown beside the employment period. */
+  location?: string
   description?: string
   /** UI icon to represent the role type. */
   icon?: React.ReactElement
@@ -24,6 +26,8 @@ export type ExperiencePosition = {
 export type Experience = {
   id: string
   companyName: string
+  /** Shorter label for compact homepage sections. */
+  displayName?: string
   /** URL to the company logo (absolute URL or path under /public). */
   companyLogo?: string
   /** URL to the company's website. */

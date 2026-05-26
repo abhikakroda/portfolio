@@ -5,7 +5,9 @@ import type { Experience } from "../types/experiences"
 export const EXPERIENCES: Experience[] = [
   {
     id: "iisc-cense",
+    displayName: "IISc CeNSE",
     companyName: "Indian Institute of Science (CeNSE Lab), Bangalore, India",
+    companyLogo: "/org-icons/iisc.png",
     positions: [
       {
         id: "1",
@@ -14,6 +16,7 @@ export const EXPERIENCES: Experience[] = [
           start: "10 Dec 2025",
         },
         employmentType: "Internship",
+        location: "Bangalore, India",
         icon: <CodeXmlIcon />,
         description: `- Developed AI/ML models for fault detection in semiconductor systems.
 - Worked on process monitoring and predictive maintenance techniques.
@@ -33,7 +36,9 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "drdo-sspl",
+    displayName: "DRDO SSPL",
     companyName: "Solid State Physics Laboratory (DRDO), Delhi, India",
+    companyLogo: "/org-icons/drdo.png",
     positions: [
       {
         id: "1",
@@ -43,6 +48,7 @@ export const EXPERIENCES: Experience[] = [
           end: "26 Jan 2026",
         },
         employmentType: "Internship",
+        location: "Delhi, India",
         icon: <GraduationCapIcon />,
         description: `- Studied semiconductor device physics and fabrication techniques.
 - Analyzed device performance characteristics and applications.
@@ -61,7 +67,9 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "cdac-noida",
+    displayName: "C-DAC Noida",
     companyName: "Centre for Development of Advanced Computing, Noida, India",
+    companyLogo: "/org-icons/cdac.png",
     positions: [
       {
         id: "1",
@@ -71,6 +79,7 @@ export const EXPERIENCES: Experience[] = [
           end: "Aug 2025",
         },
         employmentType: "Internship",
+        location: "Noida, India",
         icon: <LightbulbIcon />,
         description: `- Worked on cybersecurity fundamentals, threat analysis, and system protection.
 - Performed vulnerability assessment and basic penetration testing.
@@ -90,6 +99,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "education",
     companyName: "Education",
+    companyLogo: "/org-icons/nit-srinagar.png",
     positions: [
       {
         id: "2",

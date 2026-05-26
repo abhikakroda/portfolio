@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav"
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://portfolio-abhikakrodda.vercel.app",
+  url: process.env.APP_URL || "https://www.abhishekmeena.me",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,

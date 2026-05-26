@@ -4,6 +4,7 @@ export type EducationItem = {
   degree: string
   field: string
   years: string
+  logoURL?: string
   details?: string[]
 }
 
@@ -14,6 +15,7 @@ export const EDUCATION: EducationItem[] = [
     degree: "Bachelor of Technology (B.Tech)",
     field: "Electronics and Communication Engineering",
     years: "2023 – 2027",
+    logoURL: "/org-icons/nit-srinagar.png",
     details: [
       "Relevant Coursework: Digital Electronics, Signals & Systems, Semiconductor Devices, VLSI Design",
       "CGPA: 8.0",
@@ -25,6 +27,7 @@ export const EDUCATION: EducationItem[] = [
     degree: "Senior Secondary (Class XII)",
     field: "Physics, Chemistry, Mathematics",
     years: "2021 – 2022",
+    logoURL: "/org-icons/rbse.png",
     details: ["Percentage: 92.20"],
   },
   {
@@ -33,6 +36,7 @@ export const EDUCATION: EducationItem[] = [
     degree: "Secondary (Class X)",
     field: "General Studies",
     years: "2019 – 2020",
+    logoURL: "/org-icons/rbse.png",
     details: ["Percentage: 93.83"],
   },
 ]

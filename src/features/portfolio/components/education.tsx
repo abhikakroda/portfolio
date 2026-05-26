@@ -1,4 +1,5 @@
 import { GraduationCapIcon } from "lucide-react"
+import Image from "next/image"
 
 import {
   Collapsible,
@@ -49,7 +50,19 @@ export function Education() {
             >
               <div className="flex items-center gap-3">
                 <div className="flex size-6 shrink-0 items-center justify-center select-none">
-                  <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                  {school.logoURL ? (
+                    <Image
+                      src={school.logoURL}
+                      alt={`${school.school} logo`}
+                      width={32}
+                      height={32}
+                      className="size-6 rounded-md object-contain"
+                      unoptimized
+                      aria-hidden
+                    />
+                  ) : (
+                    <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                  )}
                 </div>
 
                 <h3 className="text-lg leading-snug font-semibold">
@@ -64,10 +77,22 @@ export function Education() {
                     defaultOpen={false}
                     disabled={!item.details?.length}
                   >
-                    <CollapsibleTrigger className="glass-surface glass-sheen motion-surface motion-press group block w-full rounded-xl border px-4 py-4 text-left outline-none hover:bg-accent-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset dark:hover:bg-white/[0.03]">
+                    <CollapsibleTrigger className="motion-surface motion-press group block w-full rounded-xl border px-4 py-4 text-left outline-none hover:bg-accent-muted/80 focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset dark:hover:bg-white/[0.03]">
                       <div className="flex items-start gap-3">
                         <div className="flex size-8 shrink-0 items-center justify-center rounded-xl border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-line ring-offset-1 ring-offset-background">
-                          <GraduationCapIcon className="size-4" />
+                          {item.logoURL ? (
+                            <Image
+                              src={item.logoURL}
+                              alt={`${item.school} logo`}
+                              width={32}
+                              height={32}
+                              className="size-5 rounded-md object-contain"
+                              unoptimized
+                              aria-hidden
+                            />
+                          ) : (
+                            <GraduationCapIcon className="size-4" />
+                          )}
                         </div>
 
                         <div className="min-w-0 flex-1">

@@ -1,5 +1,3 @@
-import { CollapsibleList } from "@/components/collapsible-list"
-
 import { PROJECTS } from "../../data/projects"
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
 import { ProjectItem } from "./project-item"
@@ -14,11 +12,11 @@ export function Projects() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={PROJECTS}
-        max={4}
-        renderItem={(item) => <ProjectItem project={item} />}
-      />
+      <div className="grid grid-cols-1 gap-6 px-4 pb-6 sm:grid-cols-2">
+        {PROJECTS.map((project) => (
+          <ProjectItem key={project.id} project={project} />
+        ))}
+      </div>
     </Panel>
   )
 }

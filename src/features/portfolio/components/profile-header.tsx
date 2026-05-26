@@ -30,13 +30,6 @@ export function ProfileHeader() {
           <p className="pt-2 font-pixel-square text-[13px] text-muted-foreground sm:pt-3 sm:text-[0.95rem]">
             Always Learning
           </p>
-
-          <div className="pt-1.5 font-pixel-square text-[10px] leading-snug text-muted-foreground sm:pt-2 sm:text-[13px]">
-            <span className="mr-2 inline-block size-2 rounded-full bg-zinc-300 align-middle dark:bg-zinc-600" />
-            <span>Idle</span>
-            <span className="px-2">·</span>
-            <span>Currently sleeping</span>
-          </div>
         </div>
       </div>
     </div>

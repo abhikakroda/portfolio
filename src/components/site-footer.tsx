@@ -5,7 +5,7 @@ export function SiteFooter() {
         <div className="screen-line-bottom flex min-h-24 items-end justify-between gap-6 px-6 py-6 sm:px-8">
           <div className="space-y-0.5 text-[11px] leading-tight text-muted-foreground sm:text-xs">
             <p>© 2026 Abhishek Meena</p>
-            <p>Built with love, LLMs and Coffee</p>
+            <p>Built with LLM</p>
           </div>
 
           <div className="flex items-start gap-1 text-muted-foreground">

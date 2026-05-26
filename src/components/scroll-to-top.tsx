@@ -29,11 +29,11 @@ export function ScrollToTop({
       data-visible={visible}
       data-scroll-direction={scrollDirection}
       className={cn(
-        "[--bottom:0.5rem] lg:[--bottom:2rem]",
-        "fixed right-4 bottom-[calc(var(--bottom,0.5rem)+env(safe-area-inset-bottom,0px))] z-50 lg:right-8",
-        "transition-[background-color,opacity] duration-300 data-[scroll-direction=down]:opacity-30 data-[scroll-direction=up]:opacity-100 data-[visible=false]:opacity-0",
+        "[--bottom:1rem] lg:[--bottom:2rem]",
+        "fixed right-4 bottom-[calc(var(--bottom,1rem)+env(safe-area-inset-bottom,0px))] z-50 lg:right-8",
+        "size-9 rounded-lg border border-line bg-background text-muted-foreground shadow-sm hover:bg-muted hover:text-foreground dark:bg-background dark:text-muted-foreground dark:hover:bg-muted [&_svg]:size-4 [&_svg]:stroke-2",
+        "transition-[background-color,opacity,transform] duration-300 data-[visible=false]:pointer-events-none data-[visible=false]:opacity-0 data-[visible=true]:opacity-100",
         "data-[scroll-direction=down]:hover:opacity-100",
-        "border-none",
         className
       )}
       variant="secondary"
@@ -41,7 +41,7 @@ export function ScrollToTop({
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       {...props}
     >
-      <ArrowUpIcon />
+      <ArrowUpIcon className="size-4 stroke-2" />
       <span className="sr-only">Scroll to top</span>
     </Button>
   )

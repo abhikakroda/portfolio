@@ -2,6 +2,9 @@ import { SOCIAL_LINKS } from "@/features/portfolio/data/social-links"
 import { TECH_STACK } from "@/features/portfolio/data/tech-stack"
 import { USER } from "@/features/portfolio/data/user"
 
+const getTechStackHref = (title: string, searchQuery?: string) =>
+  `https://www.google.com/search?q=${encodeURIComponent(searchQuery ?? title)}`
+
 const content = `# About
 
 ${USER.about.trim()}
@@ -20,7 +23,7 @@ ${SOCIAL_LINKS.map((item) => `- [${item.title}](${item.href})`).join("\n")}
 
 ## Tech Stack
 
-${TECH_STACK.map((item) => `- [${item.title}](${item.href})`).join("\n")}\n`
+${TECH_STACK.map((item) => `- [${item.title}](${getTechStackHref(item.title, item.searchQuery)})`).join("\n")}\n`
 
 export const revalidate = false
 export const dynamic = "force-static"

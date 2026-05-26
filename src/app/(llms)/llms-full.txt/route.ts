@@ -13,6 +13,9 @@ import { USER } from "@/features/portfolio/data/user"
 
 const allPosts = getAllDocs()
 
+const getTechStackHref = (title: string, searchQuery?: string) =>
+  `https://www.google.com/search?q=${encodeURIComponent(searchQuery ?? title)}`
+
 const aboutText = `## About
 
 ${USER.about.trim()}
@@ -31,7 +34,7 @@ ${SOCIAL_LINKS.map((item) => `- [${item.title}](${item.href})`).join("\n")}
 
 ### Tech Stack
 
-${TECH_STACK.map((item) => `- [${item.title}](${item.href})`).join("\n")}\n`
+${TECH_STACK.map((item) => `- [${item.title}](${getTechStackHref(item.title, item.searchQuery)})`).join("\n")}\n`
 
 const experienceText = `## Experience
 

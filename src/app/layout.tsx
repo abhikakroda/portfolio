@@ -4,7 +4,7 @@ import { GoogleTagManager } from "@next/third-parties/google"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
-import type { WebSite, WithContext } from "schema-dts"
+import type { Person, WebSite, WithContext } from "schema-dts"
 
 import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
@@ -19,6 +19,50 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     name: SITE_INFO.name,
     url: SITE_INFO.url,
     alternateName: [USER.username],
+  }
+}
+
+function getPersonJsonLd(): WithContext<Person> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: USER.displayName,
+    givenName: USER.firstName,
+    familyName: USER.lastName,
+    url: SITE_INFO.url,
+    image: `${SITE_INFO.url}${USER.avatar}`,
+    jobTitle: USER.jobTitle,
+    description: SITE_INFO.description,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Jaipur",
+      addressRegion: "Rajasthan",
+      addressCountry: "IN",
+    },
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "National Institute of Technology Srinagar",
+        url: "https://nitsri.ac.in",
+      },
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Indian Institute of Science",
+      url: "https://iisc.ac.in",
+    },
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Electronics and Communication Engineering",
+      "Web Development",
+      "Open Source",
+    ],
+    sameAs: [
+      "https://github.com/abhikakroda",
+      "https://www.linkedin.com/in/abhishekxmeena/",
+      "https://x.com/opentropic",
+    ],
   }
 }
 
@@ -52,6 +96,9 @@ export const metadata: Metadata = {
     },
   ],
   creator: USER.displayName,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -123,6 +170,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getPersonJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
       </head>

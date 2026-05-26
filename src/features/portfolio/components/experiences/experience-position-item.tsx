@@ -1,15 +1,14 @@
-import { BriefcaseBusinessIcon, InfinityIcon } from "lucide-react"
+import { BriefcaseBusinessIcon } from "lucide-react"
 
 import {
   Collapsible,
-  CollapsibleChevronsIcon,
+  CollapsibleChevronDownIcon,
 } from "@/components/base/collapsible-animated"
 import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/base/ui/collapsible"
 import { Markdown } from "@/components/markdown"
-import { Separator } from "@/components/ui/separator"
 import { Tag } from "@/components/ui/tag"
 import { ProseMono } from "@/components/ui/typography"
 import { cn } from "@/lib/utils"
@@ -21,9 +20,6 @@ export function ExperiencePositionItem({
 }: {
   position: ExperiencePosition
 }) {
-  const { start, end } = position.employmentPeriod
-  const isOngoing = !end
-
   return (
     <Collapsible
       className="relative"
@@ -32,74 +28,30 @@ export function ExperiencePositionItem({
     >
       <CollapsibleTrigger
         className={cn(
-          "glass-surface glass-sheen motion-surface motion-press group block w-full text-left",
-          "rounded-xl border px-4 py-4 hover:bg-accent-muted/80 dark:hover:bg-white/[0.03]",
+          "motion-press group flex w-full items-center justify-between gap-3 text-left",
+          "rounded-lg py-1 text-sm text-muted-foreground hover:text-foreground",
           "outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-inset"
         )}
       >
-        <div className="mb-1 flex items-center gap-3">
-          <div
-            className={cn(
-              "flex size-8 shrink-0 items-center justify-center rounded-xl",
-              "bg-muted text-muted-foreground",
-              "border border-muted-foreground/15 ring-1 ring-line ring-offset-1 ring-offset-background",
-              "[&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-            )}
-          >
-            {position.icon ?? <BriefcaseBusinessIcon />}
-          </div>
+        <span className="flex items-center gap-2">
+          <BriefcaseBusinessIcon className="size-3.5" />
+          Details
+        </span>
 
-          <h4 className="flex-1 text-base font-medium text-balance text-foreground">
-            {position.title}
-          </h4>
-
-          <div className="shrink-0 text-muted-foreground group-data-disabled:hidden [&_svg]:size-4">
-            <CollapsibleChevronsIcon duration={0.15} />
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2 pl-11 text-sm text-muted-foreground">
-          {position.employmentType && (
-            <>
-              <dl>
-                <dt className="sr-only">Employment Type</dt>
-                <dd>{position.employmentType}</dd>
-              </dl>
-
-              <Separator
-                className="data-vertical:h-4 data-vertical:self-center"
-                orientation="vertical"
-              />
-            </>
-          )}
-
-          <dl>
-            <dt className="sr-only">Employment Period</dt>
-            <dd className="flex items-center gap-0.5">
-              <span>{start}</span>
-              <span className="font-mono">—</span>
-              {isOngoing ? (
-                <>
-                  <InfinityIcon className="size-4.5 translate-y-[0.5px]" />
-                  <span className="sr-only">Present</span>
-                </>
-              ) : (
-                <span>{end}</span>
-              )}
-            </dd>
-          </dl>
+        <div className="shrink-0 group-data-disabled:hidden [&_svg]:size-4">
+          <CollapsibleChevronDownIcon duration={0.15} />
         </div>
       </CollapsibleTrigger>
 
       <CollapsibleContent className="overflow-hidden">
         {position.description && (
-          <ProseMono className="pt-3 pl-11">
+          <ProseMono className="pt-2">
             <Markdown>{position.description}</Markdown>
           </ProseMono>
         )}
 
         {Array.isArray(position.skills) && position.skills.length > 0 && (
-          <ul className="flex flex-wrap gap-1.5 pt-3 pl-11">
+          <ul className="flex flex-wrap gap-1.5 pt-3">
             {position.skills.map((skill, index) => (
               <li key={index} className="flex">
                 <Tag>{skill}</Tag>

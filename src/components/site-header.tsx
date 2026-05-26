@@ -1,4 +1,3 @@
-import { ChevronDownIcon } from "lucide-react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
@@ -41,28 +40,6 @@ export function SiteHeader() {
           >
             {initials}
           </Link>
-
-          <nav className="hidden items-center gap-8 sm:flex">
-            <Link
-              className="font-mono text-sm font-medium text-foreground"
-              href="/"
-            >
-              Home
-            </Link>
-            <Link
-              className="font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground"
-              href="/#projects"
-            >
-              Projects
-            </Link>
-            <button
-              type="button"
-              className="flex items-center gap-1 font-mono text-sm font-medium text-muted-foreground transition-[color] hover:text-foreground"
-            >
-              <span>More</span>
-              <ChevronDownIcon className="size-3.5" />
-            </button>
-          </nav>
 
           <div className="flex items-center gap-2 max-sm:ml-auto">
             <CommandMenu docs={docPreviews} blocks={blocks} enabledHotkeys />

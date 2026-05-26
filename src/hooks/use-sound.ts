@@ -105,11 +105,14 @@ export function useSound(url: string) {
         console.log(`Failed to load sound from ${url}:`, err)
         // Mark as failed in cache
         audioCache.set(url, null)
-        throw err
+        return Promise.reject(err)
       })
 
     // Mark as loading in cache
     audioCache.set(url, { buffer: null!, loading: loadingPromise })
+    loadingPromise.catch(() => {
+      // The failed URL is already cached above; avoid an unhandled rejection.
+    })
   }, [url])
 
   const play = useCallback((volume: number = 1) => {
