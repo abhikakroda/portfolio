@@ -18,7 +18,7 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     name: SITE_INFO.name,
     url: SITE_INFO.url,
     description: SITE_INFO.description,
-    alternateName: [USER.username],
+    alternateName: ["Abhishek Meena Portfolio", "abhishekmeena.me"],
   }
 }
 
@@ -87,6 +87,7 @@ const darkModeScript = String.raw`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
+  applicationName: SITE_INFO.name,
   title: {
     template: `%s – ${SITE_INFO.name}`,
     default: USER.displayName,
