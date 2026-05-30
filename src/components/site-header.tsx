@@ -2,8 +2,13 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Separator } from "@/components/ui/separator"
 import { MOBILE_NAV } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
+
+const CommandMenu = dynamic(() =>
+  import("@/components/command-menu").then((mod) => mod.CommandMenu)
+)
 
 const MobileNav = dynamic(() =>
   import("@/components/mobile-nav").then((mod) => mod.MobileNav)
@@ -24,7 +29,12 @@ export function SiteHeader() {
             {initials}
           </Link>
 
-          <div className="ml-auto flex items-center">
+          <div className="ml-auto flex items-center gap-2">
+            <CommandMenu enabledHotkeys />
+            <Separator
+              orientation="vertical"
+              className="mx-1.5 sm:mx-2 data-vertical:h-4 data-vertical:self-center"
+            />
             <ThemeToggle />
           </div>
 
@@ -35,7 +45,12 @@ export function SiteHeader() {
 
       {/* Mobile Nav */}
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 h-[calc(--spacing(16)+env(safe-area-inset-bottom,0px))] bg-linear-to-t from-background from-[calc(env(safe-area-inset-bottom,0%))] to-transparent sm:hidden" />
-      <div className="fixed bottom-[calc(--spacing(2)+env(safe-area-inset-bottom,0px))] left-1/2 z-50 flex w-fit -translate-x-1/2 items-center rounded-xl bg-popover p-1 shadow-md ring ring-foreground/10 sm:hidden dark:ring-foreground/20">
+      <div className="fixed bottom-[calc(--spacing(2)+env(safe-area-inset-bottom,0px))] left-1/2 z-50 flex w-fit -translate-x-1/2 items-center rounded-xl bg-popover py-1 pr-1 pl-2.5 shadow-md ring ring-foreground/10 sm:hidden dark:ring-foreground/20">
+        <CommandMenu />
+        <Separator
+          orientation="vertical"
+          className="mr-1 ml-2.5 data-vertical:h-6 data-vertical:self-center"
+        />
         <MobileNav items={MOBILE_NAV} />
       </div>
     </>
