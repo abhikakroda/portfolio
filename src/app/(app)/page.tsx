@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${USER.displayName} – ${USER.jobTitle}`,
+    title: USER.displayName,
     description:
       "ECE student at NIT Srinagar, AI/ML intern at IISc Bangalore. Building at the intersection of AI and real-world impact.",
     url: "/",

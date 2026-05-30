@@ -89,7 +89,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
   title: {
     template: `%s – ${SITE_INFO.name}`,
-    default: `${USER.displayName} – ${USER.jobTitle}`,
+    default: USER.displayName,
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
   openGraph: {
-    title: `${USER.displayName} – ${USER.jobTitle}`,
+    title: USER.displayName,
     description: SITE_INFO.description,
     siteName: SITE_INFO.name,
     url: "/",
