@@ -29,51 +29,64 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/:section(blog|components)/writing-effect-inspired-by-apple",
-        destination: "/:section/apple-hello-effect",
+        source: "/blog/:path*",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/:section(blog|components)/work-experience",
-        destination: "/:section/work-experience-component",
+        source: "/components/:path*",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/:section(blog|components)/theme-switcher-component",
-        destination: "/:section/theme-switcher",
+        source: "/blocks/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/sponsors",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/preview/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/doc.mdx/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/rss",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/registry/rss",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/r/:path*",
+        destination: "/",
         permanent: true,
       },
       {
         source: "/testimonials",
-        destination: "/wall-of-love",
+        destination: "/",
         permanent: true,
       },
-    ]
-  },
-  async rewrites() {
-    return [
       {
-        source: "/:section(blog|components)/:slug.mdx",
-        destination: "/doc.mdx/:slug",
+        source: "/wall-of-love",
+        destination: "/",
+        permanent: true,
       },
       {
-        source: "/:section(blog|components)/:slug",
-        destination: "/doc.mdx/:slug",
-        has: [
-          {
-            type: "header",
-            key: "accept",
-            value: "(?<accept>.*text/markdown.*)",
-          },
-        ],
-      },
-      {
-        source: "/rss",
-        destination: "/blog/rss",
-      },
-      {
-        source: "/registry/rss",
-        destination: "/components/rss",
+        source: "/awards.md",
+        destination: "/",
+        permanent: true,
       },
     ]
   },

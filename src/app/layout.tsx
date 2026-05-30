@@ -6,7 +6,6 @@ import Script from "next/script"
 import { NuqsAdapter } from "nuqs/adapters/next/app"
 import type { Person, WebSite, WithContext } from "schema-dts"
 
-import { DuckFollower } from "@/components/duck-follower"
 import { Providers } from "@/components/providers"
 import { META_THEME_COLORS, SITE_INFO, X_USERNAME } from "@/config/site"
 import { USER } from "@/features/portfolio/data/user"
@@ -18,8 +17,13 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     "@type": "WebSite",
     name: SITE_INFO.name,
     url: SITE_INFO.url,
+    description: SITE_INFO.description,
     alternateName: [USER.username],
   }
+}
+
+function getAbsoluteUrl(path: string) {
+  return new URL(path, SITE_INFO.url).toString()
 }
 
 function getPersonJsonLd(): WithContext<Person> {
@@ -30,7 +34,7 @@ function getPersonJsonLd(): WithContext<Person> {
     givenName: USER.firstName,
     familyName: USER.lastName,
     url: SITE_INFO.url,
-    image: `${SITE_INFO.url}${USER.avatar}`,
+    image: getAbsoluteUrl(USER.avatar),
     jobTitle: USER.jobTitle,
     description: SITE_INFO.description,
     address: {
@@ -100,6 +104,8 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
   openGraph: {
+    title: `${USER.displayName} – ${USER.jobTitle}`,
+    description: SITE_INFO.description,
     siteName: SITE_INFO.name,
     url: "/",
     type: "profile",
@@ -186,10 +192,7 @@ export default function RootLayout({
 
       <body>
         <Providers>
-          <NuqsAdapter>
-            {children}
-            <DuckFollower />
-          </NuqsAdapter>
+          <NuqsAdapter>{children}</NuqsAdapter>
         </Providers>
       </body>
     </html>

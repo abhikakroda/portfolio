@@ -42,4 +42,6 @@ export type User = {
   timeZone: string
   /** Profile/site start date in YYYY-MM-DD */
   dateCreated: string
+  /** Last meaningful profile update in YYYY-MM-DD */
+  dateUpdated: string
 }

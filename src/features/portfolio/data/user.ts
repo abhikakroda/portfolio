@@ -41,4 +41,5 @@ export const USER: User = {
     "full stack developer india",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
+  dateUpdated: "2026-05-30", // YYYY-MM-DD
 }

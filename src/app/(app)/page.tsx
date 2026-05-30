@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 
+import { SITE_INFO } from "@/config/site"
 import { About } from "@/features/portfolio/components/about"
 import { Certifications } from "@/features/portfolio/components/certifications"
 import { Education } from "@/features/portfolio/components/education"
@@ -68,13 +69,20 @@ function getPageJsonLd(): WithContext<PageSchema> {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
+    url: SITE_INFO.url,
     dateCreated: new Date(USER.dateCreated).toISOString(),
-    dateModified: new Date().toISOString(),
+    dateModified: new Date(USER.dateUpdated).toISOString(),
     mainEntity: {
       "@type": "Person",
       name: USER.displayName,
       identifier: USER.username,
-      image: USER.avatar,
+      url: SITE_INFO.url,
+      image: new URL(USER.avatar, SITE_INFO.url).toString(),
+      sameAs: [
+        "https://github.com/abhikakroda",
+        "https://www.linkedin.com/in/abhishekxmeena/",
+        "https://x.com/opentropic",
+      ],
     },
   }
 }

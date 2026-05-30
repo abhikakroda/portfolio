@@ -144,6 +144,7 @@ const components: MDXRemoteProps["components"] = {
   TabsIndicator,
   TabsTrigger,
   TabsContent,
+  Testimonial,
   TabsListInstallType: () => (
     <TabsList>
       <TabsTrigger value="cli">Command</TabsTrigger>
@@ -154,7 +155,6 @@ const components: MDXRemoteProps["components"] = {
   YouTubeEmbed,
   IframeEmbed,
   FramedImage,
-  Testimonial,
   AutoTypeTable: (props) => <AutoTypeTable {...props} generator={generator} />,
 }
 

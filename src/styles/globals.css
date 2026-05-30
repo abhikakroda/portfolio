@@ -337,12 +337,11 @@
   }
 
   .glass-surface {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--background) 86%, white) 0%,
-        color-mix(in oklab, var(--background) 92%, transparent) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--background) 86%, white) 0%,
+      color-mix(in oklab, var(--background) 92%, transparent) 100%
+    );
     border-color: color-mix(in oklab, var(--line) 78%, white 22%);
     box-shadow:
       inset 0 1px 0 color-mix(in oklab, white 72%, transparent),
@@ -358,22 +357,20 @@
     inset: 0;
     pointer-events: none;
     border-radius: inherit;
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, white 55%, transparent) 0%,
-        transparent 34%
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, white 55%, transparent) 0%,
+      transparent 34%
+    );
     opacity: 0.72;
   }
 
   .dark .glass-surface {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, var(--background) 94%, white 6%) 0%,
-        color-mix(in oklab, var(--background) 98%, black 2%) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--background) 94%, white 6%) 0%,
+      color-mix(in oklab, var(--background) 98%, black 2%) 100%
+    );
     border-color: color-mix(in oklab, var(--line) 88%, white 12%);
     box-shadow:
       inset 0 1px 0 color-mix(in oklab, white 16%, transparent),
@@ -384,12 +381,11 @@
   }
 
   .dark .glass-surface::before {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in oklab, white 12%, transparent) 0%,
-        transparent 28%
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, white 12%, transparent) 0%,
+      transparent 28%
+    );
     opacity: 0.42;
   }
 
@@ -405,14 +401,15 @@
     inset: -1px;
     pointer-events: none;
     border-radius: inherit;
-    background:
-      radial-gradient(
-        120% 70% at 0% 0%,
-        color-mix(in oklab, white 34%, transparent) 0%,
-        transparent 50%
-      );
+    background: radial-gradient(
+      120% 70% at 0% 0%,
+      color-mix(in oklab, white 34%, transparent) 0%,
+      transparent 50%
+    );
     opacity: 0.55;
-    transition: opacity 220ms ease-out, transform 220ms ease-out;
+    transition:
+      opacity 220ms ease-out,
+      transform 220ms ease-out;
   }
 
   .glass-sheen:hover::after {
@@ -516,7 +513,7 @@
   }
 }
 
-@utility prose-ncdai {
+@utility prose-portfolio {
   @apply prose-headings:tracking-tight prose-headings:text-balance prose-h2:font-semibold;
   @apply prose-a:font-medium prose-a:wrap-break-word prose-a:text-foreground prose-a:underline prose-a:underline-offset-4;
   @apply prose-code:rounded-md prose-code:border prose-code:bg-muted/50 prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none;
